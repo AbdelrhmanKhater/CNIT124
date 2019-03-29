@@ -1,12 +1,13 @@
 #!/usr/bin/python
 import socket
+import time
 
 socket.setdefaulttimeout(3)
 s = socket.socket()
-target = raw_input("target:")
-port = int(raw_input("port:"))
+target = "attackdirect.samsclass.info"
+port = 80
 s.connect((target, port))
-s.send("HEAD / HTTP/1.1\nHost: " + target + "\n\n")
+s.send("GET / HTTP/1.1\nHost: " + target + "\n\n")
 print(s.recv(1024))
 s.close()
 
